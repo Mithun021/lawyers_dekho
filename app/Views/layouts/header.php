@@ -25,6 +25,51 @@
     <!-- color scheme -->
     <link id="colors" href="<?= base_url() ?>public/assets/css/scheme-01.css" rel="stylesheet" type="text/css" />
     <link href="<?= base_url() ?>public/assets/css/coloring.css" rel="stylesheet" type="text/css" />
+    <style>
+        .badge{
+            background-color: #eaa636;
+            font-size: 12px;
+        }
+        #mainmenu>li.menu-item-has-children>ul>li.menu-item-has-children>a:after {
+            content: "\f105"; /* Dropdown icon for sub-sub menu */
+            font-family: "FontAwesome";
+            display: inline-block;
+            position: absolute;
+            right: 10px;
+            color: rgba(0, 0, 0, 0.69);
+            font-size: 18px;
+        }
+        #mainmenu>li.menu-item-has-children>ul>li.menu-item-has-children:hover>a:after {
+            color: white; /* Change icon color to white on hover */
+        }
+        @media screen and (max-width: 992px) {
+            #mainmenu>li.menu-item-has-children>ul>li.menu-item-has-children>a:after {
+                content: ""; /* Remove icon */
+            }
+            @media only screen and (max-width: 992px) {
+                header.header-mobile #mainmenu{
+                    height: auto;
+                    min-height: auto;
+                    max-height: 500px;
+                    overflow-y: scroll;
+                    position: relative;
+                    left: 0;
+                }
+                header.header-mobile #mainmenu::-webkit-scrollbar {
+                    width: 5px; 
+                }
+                /* header.header-mobile #mainmenu li span.active + ul {
+                    height: auto;
+                    min-height: auto;
+                    max-height: 500px;
+                    overflow-y: scroll;
+                    position: relative;
+                    left: 0;
+                } */
+            }
+
+        }
+    </style>
 </head>
 
 <body>
@@ -50,14 +95,14 @@
         </div>
         <!-- header begin -->
         <header class="header-light">
-            <div class="container">
+            <div class="container-fluid px-3">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="de-flex sm-pt10">
                             <div class="de-flex-col">
                                 <!-- logo begin -->
                                 <div id="logo">
-                                    <a href="index.html">
+                                    <a href="<?= base_url() ?>">
                                         <img alt="" class="logo" src="<?= base_url() ?>public/assets/images/logo-light.png" />
                                         <img alt="" class="logo-2" src="<?= base_url() ?>public/assets/images/logo.png" />
                                     </a>
@@ -67,54 +112,128 @@
                             <div class="de-flex-col header-col-mid">
                                 <!-- mainmenu begin -->
                                 <ul id="mainmenu">
-                                    <li><a href="index.html">Home</a>
+                                    <li><a href="javascript:void(0)"><label class="badge">Consult an Expert</label></a>
                                         <ul>
-                                            <li><a href="index-9.html"><b>New</b> Homepage 9</a></li>
-                                            <li><a href="index-8.html"><b>New</b> Homepage 8</a></li>
-                                            <li><a href="index.html">Homepage 1</a></li>
-                                            <li><a href="index-2.html">Homepage 2</a></li>
-                                            <li><a href="index-3.html">Homepage 3</a></li>
-                                            <li><a href="index-4.html">Homepage 4</a></li>
-                                            <li><a href="index-5.html">Homepage 5</a></li>
-                                            <li><a href="index-6.html">Homepage 6</a></li> 
-                                            <li><a href="index-7.html">Homepage 7</a></li>                                           
-                                            <li><a href="index-onepage.html">Onepage</a></li>
+                                            <li><a href="<?= base_url() ?>">Talk to a Lawyer</a></li>
+                                            <li><a href="<?= base_url() ?>">Talk to a Chartered Accountant</a></li>
+                                            <li><a href="<?= base_url() ?>">Talk to a Company Secretary</a></li>
+                                            <li><a href="<?= base_url() ?>">Talk to a IP/Trademark Lawyer</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="about.html">About</a>
+                                    <li><a href="javascript:void(0)">Business Setup</a>
                                         <ul>
-                                            <li><a href="about.html">About Us</a></li>
-                                            <li><a href="team.html">The Team</a></li>
-                                            <li><a href="faq.html">FAQ</a></li>
+                                            <li class="menu-item-has-children"><a href="javascript:void(0)">Business Registration</a>
+                                                <ul>
+                                                    <li><a href="<?= base_url() ?>">US Incorporation</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item-has-children"><a href="javascript:void(0)">Business Registration</a>
+                                                <ul>
+                                                    <li><a href="<?= base_url() ?>">US Incorporation</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item-has-children"><a href="javascript:void(0)">Business Registration</a>
+                                                <ul>
+                                                    <li><a href="<?= base_url() ?>">US Incorporation</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item-has-children"><a href="javascript:void(0)">Business Registration</a>
+                                                <ul>
+                                                    <li><a href="<?= base_url() ?>">US Incorporation</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item-has-children"><a href="javascript:void(0)">Business Registration</a>
+                                                <ul>
+                                                    <li><a href="<?= base_url() ?>">US Incorporation</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item-has-children"><a href="javascript:void(0)">Business Registration</a>
+                                                <ul>
+                                                    <li><a href="<?= base_url() ?>">US Incorporation</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item-has-children"><a href="javascript:void(0)">Business Registration</a>
+                                                <ul>
+                                                    <li><a href="<?= base_url() ?>">US Incorporation</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item-has-children"><a href="javascript:void(0)">Business Registration</a>
+                                                <ul>
+                                                    <li><a href="<?= base_url() ?>">US Incorporation</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item-has-children"><a href="javascript:void(0)">Business Registration</a>
+                                                <ul>
+                                                    <li><a href="<?= base_url() ?>">US Incorporation</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item-has-children"><a href="javascript:void(0)">Business Registration</a>
+                                                <ul>
+                                                    <li><a href="<?= base_url() ?>">US Incorporation</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item-has-children"><a href="javascript:void(0)">Business Registration</a>
+                                                <ul>
+                                                    <li><a href="<?= base_url() ?>">US Incorporation</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item-has-children"><a href="javascript:void(0)">Business Registration</a>
+                                                <ul>
+                                                    <li><a href="<?= base_url() ?>">US Incorporation</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item-has-children"><a href="javascript:void(0)">Business Registration</a>
+                                                <ul>
+                                                    <li><a href="<?= base_url() ?>">US Incorporation</a></li>
+                                                </ul>
+                                            </li>
                                         </ul>
                                     </li>
-                                    <li><a href="practice-areas.html">Practice Areas</a>
+                                    <li><a href="javascript:void(0)">Tax & Compliance</a>
                                         <ul>
-                                            <li><a href="practice-areas-4.html"><b>New</b>Practice Areas 4</a></li>
-                                            <li><a href="practice-areas.html">Practice Areas 1</a></li>
-                                            <li><a href="practice-areas-2.html">Practice Areas 2</a></li>
-                                            <li><a href="practice-areas-3.html">Practice Areas 3</a></li>
+                                            <li class="menu-item-has-children"><a href="javascript:void(0)">GST & Other Indirect Tax</a>
+                                                <ul>
+                                                    <li><a href="<?= base_url() ?>">GST Registration</a></li>
+                                                </ul>
+                                            </li>
                                         </ul>
                                     </li>
-                                    <li><a href="news.html">News</a>
+                                    <li><a href="javascript:void(0)">Trademark & IP</a>
                                         <ul>
-                                            <li><a href="news.html">News List</a></li>
-                                            <li><a href="news-single.html">News Single</a></li>
+                                            <li class="menu-item-has-children"><a href="javascript:void(0)">Trademark</a>
+                                                <ul>
+                                                    <li><a href="<?= base_url() ?>">Trademark Registration</a></li>
+                                                </ul>
+                                            </li>
                                         </ul>
                                     </li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                     <li><a href="#">Elements</a>
+                                    <li><a href="javascript:void(0)">Documentation</a>
                                         <ul>
-                                            <li><a href="accordion.html">Accordion</a></li>
-                                            <li><a href="alerts.html">Alerts</a></li>
-                                            <li><a href="counters.html">Counters</a></li>
-                                            <li><a href="faq.html">FAQ</a></li>
-                                            <li><a href="gallery.html">Gallery</a></li>
-                                            <li><a href="icon-set-1.html">Icon Set 1</a></li>
-                                            <li><a href="modal.html">Modal</a></li>
-                                            <li><a href="progress-bar.html">Progress Bar</a></li>
-                                            <li><a href="tabs.html">Tabs</a></li>
-                                            <li><a href="testimonials.html">Testimonials</a></li>
+                                            <li class="menu-item-has-children"><a href="javascript:void(0)">Business Contract</a>
+                                                <ul>
+                                                    <li><a href="<?= base_url() ?>">Franchise Agreement</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!-- <li><a href="contact.html">Contact</a></li> -->
+                                    <li><a href="javascript:void(0)">Others</a>
+                                        <ul>
+                                            <li class="menu-item-has-children"><a href="javascript:void(0)">Fundraising</a>
+                                                <ul>
+                                                    <li><a href="<?= base_url() ?>">Fundraising</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item-has-children"><a href="javascript:void(0)">Company</a>
+                                                <ul>
+                                                    <li><a href="<?= base_url() ?>">About Us</a></li>
+                                                    <li><a href="<?= base_url() ?>">Latest News</a></li>
+                                                    <li><a href="<?= base_url() ?>">Contact Us</a></li>
+                                                    <li><a href="<?= base_url() ?>">Media</a></li>
+                                                    <li><a href="<?= base_url() ?>">Career</a></li>
+                                                    <li><a href="<?= base_url() ?>">Partner with Us</a></li>
+                                                </ul>
+                                            </li>
                                         </ul>
                                     </li>
                                 </ul>
