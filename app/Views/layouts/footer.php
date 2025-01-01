@@ -1,3 +1,4 @@
+</div>
 <!-- content close -->
 <a href="#" id="back-to-top"></a>
         <!-- footer begin -->
@@ -6,7 +7,7 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="widget">
-                            <a href="index.html"><img alt="" class="img-fluid mb20" src="images/logo-light.png"></a>
+                            <a href="index.html"><img alt="" class="img-fluid mb20" src="<?= base_url() ?>public/assets/images/logo-light.png"></a>
                             <address class="s1">
                                 <span><i class="id-color fa fa-map-marker fa-lg"></i>08 W 36th St, New York, NY 10001</span>
                                 <span><i class="id-color fa fa-phone fa-lg"></i>+1 333 9296</span>
@@ -61,32 +62,17 @@
             </div>
         </footer>
         <!-- footer close -->
-        <div id="preloader">
+        <!-- <div id="preloader">
             <div class="spinner">
                 <div class="bounce1"></div>
                 <div class="bounce2"></div>
                 <div class="bounce3"></div>
             </div>
-        </div>
-    </div>
-    <div id="selector">
-        <div id="demo-rtl" class="sc-opt">
-            <div class="sc-icon">RTL</div><span class="sc-val">Click to Enable</span>
-        </div>
-        <div class="sc-opt sc-mt">
-            <div class="sc-icon"><i class="fa fa-eyedropper"></i></div>
-            <span class="opt tc1" data-color="scheme-01"></span>
-            <span class="opt tc2" data-color="scheme-02"></span>
-            <span class="opt tc3" data-color="scheme-03"></span>
-            <span class="opt tc4" data-color="scheme-04"></span>
-            <span class="opt tc5" data-color="scheme-05"></span>
-            <span class="opt tc6" data-color="scheme-06"></span>
-            <span class="opt tc7" data-color="scheme-07"></span>
-        </div>
+        </div> -->
     </div>
     <div id="purchase-now">
-        <a href="https://themeforest.net/cart/add_items?ref=designesia&item_ids=29485331"><span>$</span>25</a>
-        <div class="pn-hover">Buy Now</div>
+        <a href="#"><label class="fa fa-wechat"></label></a>
+        <div class="pn-hover">Chat us</div>
     </div>
     <!-- Javascript Files
     ================================================== -->

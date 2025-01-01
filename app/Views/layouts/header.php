@@ -23,7 +23,7 @@
     <link href="<?= base_url() ?>public/assets/css/jquery.countdown.css" rel="stylesheet" type="text/css" />
     <link href="<?= base_url() ?>public/assets/css/style.css" rel="stylesheet" type="text/css" />
     <!-- color scheme -->
-    <link id="colors" href="<?= base_url() ?>public/assets/css/colors/scheme-01.css" rel="stylesheet" type="text/css" />
+    <link id="colors" href="<?= base_url() ?>public/assets/css/scheme-01.css" rel="stylesheet" type="text/css" />
     <link href="<?= base_url() ?>public/assets/css/coloring.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -130,3 +130,6 @@
             </div>
         </header>
         <!-- header close -->
+         <!-- content begin -->
+        <div class="no-bottom no-top" id="content">
+        <div id="top"></div>
