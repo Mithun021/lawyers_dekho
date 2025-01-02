@@ -16,7 +16,7 @@ class App extends BaseConfig
      *
      * E.g., http://example.com/
      */
-    public string $baseURL = 'http://localhost/codeigniter/search_lawyer/';
+    public string $baseURL = 'https://kanoonisahayata.in/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
