@@ -73,11 +73,74 @@ class AdminController extends BaseController
             $data['pages'] = $pages_model->get();
             return view('admin/create_page',$data);
         }if ($this->request->is("post")) {
+            $pageName = url_title(strtolower($this->request->getPost('page_name')));
             $data = [
                 'page_name' => $this->request->getPost('page_name'),
-                'slug' => url_title(strtolower($this->request->getPost('page_name')))
+                'slug' => $pageName
             ];
-            echo "<pre>"; print_r($data);
+
+            $viewsPath = APPPATH . "Views/{$pageName}.php";
+            $controllerPath = APPPATH . "Controllers/FrontendController.php";
+
+            // 1. Create the View File
+            $viewContent = <<<PHP
+            <?= \$this->extend("layouts/master") ?>
+            <?= \$this->section("body-content"); ?>
+            
+            <?= \$this->endSection(); ?>
+            PHP;
+            if (!file_exists($viewsPath)) {
+                file_put_contents($viewsPath, $viewContent);
+            }
+
+            // 2. Add the Method to the Controller
+            $methodContent = <<<PHP
+            public function {$pageName}()
+            {
+                return view('{$pageName}');
+            }
+            PHP;
+            
+            if (file_exists($controllerPath)) {
+                $controllerCode = file_get_contents($controllerPath);
+    
+                if (!strpos($controllerCode, "public function {$pageName}()")) {
+                    $controllerCode = preg_replace(
+                        '/}\s*$/',
+                        "{$methodContent}\n}",
+                        $controllerCode
+                    );
+                    file_put_contents($controllerPath, $controllerCode);
+                }
+            }
+
+            // 3. Add the Route
+            $routesPath = APPPATH . 'Config/Routes.php';
+            $routeContent = <<<PHP
+
+            \$routes->get('/{$pageName}', 'FrontendController::{$pageName}');
+            PHP;
+
+            if (file_exists($routesPath)) {
+                $routesCode = file_get_contents($routesPath);
+
+                if (!strpos($routesCode, "'/{$pageName}'")) {
+                    $routesCode = preg_replace(
+                        '/\?>/',
+                        "{$routeContent}\n?>",
+                        $routesCode
+                    );
+                    file_put_contents($routesPath, $routesCode);
+                }
+            }
+
+            $save = $pages_model->add($data);
+            if ($save) {
+                return redirect()->to('admin/create_page/')->with('msg','<div class="alert alert-success" role="alert"> Add Successful </div>');
+            }
+            else{
+                return redirect()->to('admin/create_page/')->with('msg','<div class="alert alert-danger" role="alert"> Failed to add </div>');
+            }
         }
     }
 
