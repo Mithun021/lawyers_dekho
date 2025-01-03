@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-lg-4">
         <div class="card">
-            <div class="card-header"><h4 class="m-0 text-title">Create Page</h4></div>
+            <div class="card-header"><h5 class="m-0 text-title">Create Page</h5></div>
             <form action="<?= base_url() ?>admin/create_page" method="post">
             <div class="card-body">
                 <div class="form-group">
