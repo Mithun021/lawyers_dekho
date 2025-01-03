@@ -1,49 +1,93 @@
 </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          <footer class="footer">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-center text-sm-left d-block d-sm-inline-block">Copyright © <a href="<?= base_url() ?>" target="_blank">Rohatgi Home Bazar</a> <?= date("Y") ?></span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"></span>
+                </div>
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <?= date('Y') ?> © MBVY.
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="text-sm-right d-none d-sm-block">
+                                    Design & Develop by Dcode Materials
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+
             </div>
-          </footer>
-          <!-- partial -->
+            <!-- end main content-->
+
         </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
-    </div>
-    <!-- container-scroller -->
-    <!-- base:js -->
-    <script src="<?= base_url() ?>public/admin/assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page-->
-    <!-- End plugin js for this page-->
-    <!-- inject:js -->
-    <script src="<?= base_url() ?>public/admin/assets/js/off-canvas.js"></script>
-    <script src="<?= base_url() ?>public/admin/assets/js/hoverable-collapse.js"></script>
-    <script src="<?= base_url() ?>public/admin/assets/js/template.js"></script>
-    <script src="<?= base_url() ?>public/admin/assets/js/settings.js"></script>
-    <script src="<?= base_url() ?>public/admin/assets/js/todolist.js"></script>
-    <!-- endinject -->
-    <!-- plugin js for this page -->
-    <script src="<?= base_url() ?>public/admin/assets/vendors/progressbar.js/progressbar.min.js"></script>
-    <script src="<?= base_url() ?>public/admin/assets/vendors/chart.js/Chart.min.js"></script>
-    <!-- Sweet Alert -->
-    <!-- <script src="<?= base_url() ?>public/admin/assets/vendors/sweetalert/sweetalert.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- END layout-wrapper -->
 
-    <script src="<?= base_url() ?>public/admin/assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
-    <script src="<?= base_url() ?>public/admin/assets/vendors/select2/select2.min.js"></script>
-    <script src="<?= base_url() ?>public/admin/assets/js/file-upload.js"></script>
-    <script src="<?= base_url() ?>public/admin/assets/js/typeahead.js"></script>
-    <script src="<?= base_url() ?>public/admin/assets/js/select2.js"></script>
+        <!-- Overlay-->
+        <div class="menu-overlay"></div>
 
 
-    <!-- Custom js for this page-->
-    <script src="<?= base_url() ?>public/admin/assets/js/dashboard.js"></script>
-    <script src="<?= base_url() ?>public/admin/assets/js/customscripts1.js"></script>
-    <!-- End custom js for this page-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script>
-  </body>
+        <!-- jQuery  -->
+        <script src="<?= base_url() ?>public/admin/assets/js/jquery.min.js"></script>
+        <script src="<?= base_url() ?>public/admin/assets/js/bootstrap.bundle.min.js"></script>
+        <script src="<?= base_url() ?>public/admin/assets/js/metismenu.min.js"></script>
+        <script src="<?= base_url() ?>public/admin/assets/js/waves.js"></script>
+        <script src="<?= base_url() ?>public/admin/assets/js/simplebar.min.js"></script>
+
+        <!-- App js -->
+        <script src="<?= base_url() ?>public/admin/assets/js/theme.js"></script>
+
+         <!-- third party js -->
+        <script src="<?= base_url() ?>public/admin/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="<?= base_url() ?>public/admin/plugins/datatables/dataTables.bootstrap4.js"></script>
+        <script src="<?= base_url() ?>public/admin/plugins/datatables/dataTables.responsive.min.js"></script>
+        <script src="<?= base_url() ?>public/admin/plugins/datatables/responsive.bootstrap4.min.js"></script>
+        <script src="<?= base_url() ?>public/admin/plugins/datatables/dataTables.buttons.min.js"></script>
+        <script src="<?= base_url() ?>public/admin/plugins/datatables/buttons.bootstrap4.min.js"></script>
+        <script src="<?= base_url() ?>public/admin/plugins/datatables/buttons.html5.min.js"></script>
+        <script src="<?= base_url() ?>public/admin/plugins/datatables/buttons.flash.min.js"></script>
+        <script src="<?= base_url() ?>public/admin/plugins/datatables/buttons.print.min.js"></script>
+        <script src="<?= base_url() ?>public/admin/plugins/datatables/dataTables.keyTable.min.js"></script>
+        <script src="<?= base_url() ?>public/admin/plugins/datatables/dataTables.select.min.js"></script>
+        <script src="<?= base_url() ?>public/admin/plugins/datatables/pdfmake.min.js"></script>
+        <script src="<?= base_url() ?>public/admin/plugins/datatables/vfs_fonts.js"></script>
+        <!-- third party js ends -->
+
+        <!-- Datatables init -->
+        <script src="<?= base_url() ?>public/admin/assets/pages/datatables-demo.js"></script>
+        <script src="<?= base_url() ?>public/admin/assets/js/adminScript.js"></script>
+
+         <!-- Plugins js -->
+        <!-- <script src="<?= base_url() ?>public/admin/plugins/katex/katex.min.js"></script>
+        <script src="<?= base_url() ?>public/admin/plugins/quill/quill.min.js"></script>
+     -->
+        <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+        <!-- Init js-->
+        <script src="<?= base_url() ?>public/admin/assets/pages/quilljs-demoss.js"></script>
+
+        <!-- Jquery Validation Plugin -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script>
+            CKEDITOR.replace( 'cke-editor' );
+            CKEDITOR.replace( 'cke-editor2' );
+            CKEDITOR.on( 'instanceReady', function( evt )
+                {
+                var editor = evt.editor;
+                
+                editor.on('change', function (e) { 
+                var contentSpace = editor.ui.space('contents');
+                var ckeditorFrameCollection = contentSpace.$.getElementsByTagName('iframe');
+                var ckeditorFrame = ckeditorFrameCollection[0];
+                var innerDoc = ckeditorFrame.contentDocument;
+                var innerDocTextAreaHeight = $(innerDoc.body).height();
+                console.log(innerDocTextAreaHeight);
+                });
+            });
+
+            
+
+        </script>
+
+    </body>
+
 </html>

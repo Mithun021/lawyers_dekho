@@ -1,198 +1,243 @@
+<?php
+    use App\Models\UserModel;
+use App\Models\UsersModel;
+
+    // Instantiate the model
+    $userModel = new UsersModel();
+
+    $sessionData = session()->get('loggedUserData');
+    if ($sessionData) {
+        $LoggedUserName = $sessionData['loggeduserFirstName'];
+        $loggeduserPhone = $sessionData['loggeduserPhone'];
+        $loggeduseremail = $sessionData['loggeduseremail'];
+        $loggeduserId = $sessionData['loggeduserId'];
+    }
+
+    $user_data = $userModel->find($loggeduserId);
+
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title><?= $title; ?></title>
-    <!-- base:css -->
-    <link rel="stylesheet" href="<?= base_url() ?>public/admin/assets/vendors/typicons.font/font/typicons.css">
-    <link rel="stylesheet" href="<?= base_url() ?>public/admin/assets/vendors/css/vendor.bundle.base.css">
-    <!-- endinject --> 
-    <!-- plugin css for this page -->
-    <!-- plugin css for this page -->
-    <link rel="stylesheet" href="<?= base_url() ?>public/admin/assets/vendors/select2/select2.min.css">
-    <link rel="stylesheet" href="<?= base_url() ?>public/admin/assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <link rel="stylesheet" href="<?= base_url() ?>public/admin/assets/css/vertical-layout-light/style.css">
-    <!-- endinject -->
-    <link rel="shortcut icon" href="<?= base_url() ?>public/admin/assets/images/favicon.png" />
-    <style>
-      .error{
-        color : red;
-        width: 100%;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container-scroller">
-      <!-- partial:partials/_navbar.html -->
-      <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo" href="<?= base_url() ?>admin/"><img src="<?= base_url() ?>public/assets/img/mylogo2.png" alt="logo"/></a>
-          <a class="navbar-brand brand-logo-mini" href="<?= base_url() ?>admin/"><img src="<?= base_url() ?>public/assets/img/rhb.png" alt="logo"/></a>
-          <button class="navbar-toggler navbar-toggler align-self-center d-none d-lg-flex" type="button" data-toggle="minimize">
-            <span class="typcn typcn-th-menu"></span>
-          </button>
-        </div>
-        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-          
-          <ul class="navbar-nav navbar-nav-right">
-            <!-- <li class="nav-item dropdown  d-flex">
-              <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
-                <i class="typcn typcn-bell mr-0"></i>
-                <span class="count bg-danger">2</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-success">
-                      <i class="typcn typcn-info-large mx-0"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <h6 class="preview-subject font-weight-normal">Application Error</h6>
-                    <p class="font-weight-light small-text mb-0">
-                      Just now
-                    </p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-warning">
-                      <i class="typcn typcn-cog mx-0"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <h6 class="preview-subject font-weight-normal">Settings</h6>
-                    <p class="font-weight-light small-text mb-0">
-                      Private message
-                    </p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-info">
-                      <i class="typcn typcn-user-outline mx-0"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <h6 class="preview-subject font-weight-normal">New user registration</h6>
-                    <p class="font-weight-light small-text mb-0">
-                      2 days ago
-                    </p>
-                  </div>
-                </a>
-              </div>
-            </li> -->
-            <li class="nav-item nav-profile dropdown">
-              <a class="nav-link dropdown-toggle  pl-0 pr-0" href="#" data-toggle="dropdown" id="profileDropdown">
-                <i class="typcn typcn-user-outline mr-0"></i>
-                <span class="nav-profile-name">Admin</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                <a class="dropdown-item" href="<?= base_url() ?>admin/manage-users">
-                <i class="typcn typcn-cog text-primary"></i>
-                Settings
-                </a>
-                <a class="dropdown-item" href="<?= base_url() ?>admin/logout">
-                <i class="typcn typcn-power text-primary"></i>
-                Logout
-                </a>
-              </div>
-            </li>
-          </ul>
-          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-            <span class="typcn typcn-th-menu"></span>
-          </button>
-        </div>
-      </nav>
-      <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-       
-    
-        <!-- partial:partials/_sidebar.html -->
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
-          <li class="nav-item">
-            <div class="d-flex sidebar-profile">
-              <div class="sidebar-profile-image">
-                <img src="<?= base_url() ?>public/admin/assets/images/faces/face29.png" alt="image">
-                <span class="sidebar-status-indicator"></span>
-              </div>
-              <div class="sidebar-profile-name">
-                <p class="sidebar-name">
-                    Rohatgi Home Bazar
-                </p>
-                <p class="sidebar-designation">
-                  Welcome
-                </p>
-              </div>
-            </div>
-            
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?= base_url() ?>admin/">
-              <i class="typcn typcn-device-desktop menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <i class="typcn typcn-user-add-outline menu-icon"></i>
-              <span class="menu-title">Users/Staff</span>
-              <i class="typcn typcn-chevron-right menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url() ?>admin/add-user">Add New</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url() ?>admin/manage-users">Manage All</a></li>
-              </ul>
-            </div>
-          </li>
 
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic1" aria-expanded="false" aria-controls="ui-basic">
-              <i class="typcn typcn-film menu-icon"></i>
-              <span class="menu-title">Products</span>
-              <i class="typcn typcn-chevron-right menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic1">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url() ?>admin/add-products">Add New</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url() ?>admin/manage-products">Manage All</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url() ?>admin/manage-category">Category</a></li>
-              </ul>
-            </div>
-          </li>
+    <head>
+        <meta charset="utf-8" />
+        <title>MBVY - <?= $title ?> </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta content="#" name="description" />
+        <meta content="Dcode Materials" name="author" />
+        <meta content="Dcode Materials" name="developer" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic2" aria-expanded="false" aria-controls="ui-basic">
-              <i class="typcn typcn-briefcase menu-icon"></i>
-              <span class="menu-title">Booking Enquiry</span>
-              <i class="typcn typcn-chevron-right menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic2">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url() ?>admin/all-enquiry">View All</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url() ?>admin/pending-enquiry">In Process</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url() ?>admin/complete-enquiry">Completes</a></li>
-              </ul>
-            </div>
-          </li>
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="<?= base_url() ?>public/assets/images/logo/<?= $user_data['web_logo'] ?>">
 
-          <li class="nav-item">
-            <a class="nav-link" href="<?= base_url() ?>admin/logout">
-              <i class="typcn typcn-arrow-forward-outline menu-icon"></i>
-              <span class="menu-title">Logout</span>
-            </a>
-          </li>
-          
-        </ul>
-        
-      </nav>
-        <!-- partial -->
-        <div class="main-panel">
-          <div class="content-wrapper">
+        <!-- App css -->
+        <link href="<?= base_url() ?>public/admin/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?= base_url() ?>public/admin/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?= base_url() ?>public/admin/assets/css/theme1.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- Plugins css -->
+        <link href="<?= base_url() ?>public/admin/plugins/quill/quill.core.css" rel="stylesheet" type="text/css" />
+        <link href="<?= base_url() ?>public/admin/plugins/quill/quill.bubble.css" rel="stylesheet" type="text/css" />
+        <link href="<?= base_url() ?>public/admin/plugins/quill/quill.snow.css" rel="stylesheet" type="text/css" />
+
+        <!-- Plugins css -->
+        <link href="<?= base_url() ?>public/admin/plugins/datatables/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
+        <link href="<?= base_url() ?>public/admin/plugins/datatables/responsive.bootstrap4.css" rel="stylesheet" type="text/css" />
+        <link href="<?= base_url() ?>public/admin/plugins/datatables/buttons.bootstrap4.css" rel="stylesheet" type="text/css" />
+        <link href="<?= base_url() ?>public/admin/plugins/datatables/select.bootstrap4.css" rel="stylesheet" type="text/css" />
+        <style>
+            .error{
+                color: red;
+                font-weight: 400;
+            }
+            .cke_notification_warning{
+                display: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <span class="d-done" id="base_url"><?= base_url() ?></span>
+        <!-- Begin page -->
+        <div id="layout-wrapper">
+            <div class="header-border"></div>
+            <header id="page-topbar">
+                <div class="navbar-header">
+
+                    <div class="d-flex align-items-left">
+                        <button type="button" class="btn btn-sm mr-2 d-lg-none px-3 font-size-16 header-item waves-effect"
+                            id="vertical-menu-btn">
+                            <i class="fa fa-fw fa-bars"></i>
+                        </button>
+
+                        
+                    </div>
+
+                    <div class="d-flex align-items-center">
+                        <div class="dropdown d-inline-block ml-2">
+                            <button type="button" class="btn header-item waves-effect"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="rounded-circle header-profile-user" src="<?= base_url() ?>public/assets/images/logo/<?= $user_data['web_logo'] ?>"
+                                    alt="Header Avatar">
+                                <span class="d-none d-sm-inline-block ml-1"><?php if ($sessionData) { echo $LoggedUserName; }  ?></span>
+                                <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item d-flex align-items-center justify-content-between"
+                                    href="javascript:void(0)">
+                                    <span>Profile</span>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center justify-content-between"
+                                    href="<?= base_url() ?>admin/logout">
+                                    <span>Log Out</span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </header>
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="vertical-menu">
+
+                <div data-simplebar class="h-100">
+
+                    <div class="navbar-brand-box">
+                        <a href="<?= base_url() ?>admin/" class="logo">
+                            <img src="<?= base_url() ?>public/assets/images/logo/<?= $user_data['web_logo'] ?>" alt="" height="40" width="auto">
+                                <!-- <span>
+                                    TANA BHAGAT CLG
+                                </span> -->
+                        </a>
+                    </div>
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                        <!-- Left Menu Start -->
+                        <ul class="metismenu list-unstyled" id="side-menu">
+                            <li class="menu-title">Menu</li>
+
+                            <li>
+                                <a href="<?= base_url() ?>admin/" class="waves-effect"><i class="mdi mdi-home-analytics"></i><span>Dashboard</span></a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url() ?>admin/projectsList" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Projects</span></a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url() ?>admin/projectsCategoryList" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Projects Category</span></a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url() ?>admin/skillsDevelopment" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Updates</span></a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url() ?>admin/centers" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Centers</span></a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url() ?>admin/users" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Users</span></a>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect"><i
+                                        class="mdi mdi-table-merge-cells"></i><span>Jobs</span></a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="<?= base_url() ?>admin/jobs">Create New Jobs</a></li>
+                                    <li><a href="<?= base_url() ?>admin/job-category">Jobs Category</a></li>
+                                    <li><a href="<?= base_url() ?>admin/job-sub-category">JobsSub Category</a></li>
+                                    <li><a href="<?= base_url() ?>admin/applied_jobs">Applied Jobs Candidate</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="<?= base_url() ?>admin/volunteersList" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Volunteers</span></a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url() ?>admin/webslider" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Front Web Slider</span></a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url() ?>admin/contact-info" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Contact Info</span></a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url() ?>admin/social-media" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Social Media</span></a>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect"><i
+                                        class="mdi mdi-table-merge-cells"></i><span>About ARV</span></a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="<?= base_url() ?>admin/about-web">About Us</a></li>
+                                    <li><a href="<?= base_url() ?>admin/web-history">History</a></li>
+                                    <li><a href="<?= base_url() ?>admin/who-we-are">Who We Are ?</a></li>
+                                    <li><a href="<?= base_url() ?>admin/team-members">Team Members</a></li>
+                                    <li><a href="<?= base_url() ?>admin/mission-vision">Mission Vision</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect"><i
+                                        class="mdi mdi-table-merge-cells"></i><span>Gallery</span></a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="<?= base_url() ?>admin/photo-gallery">Photo Gallery</a></li>
+                                    <li><a href="<?= base_url() ?>admin/media-gallery">Media Gallery</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect"><i
+                                        class="mdi mdi-table-merge-cells"></i><span>Activities</span></a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="<?= base_url() ?>admin/cultural-activities">Cultural Activities</a></li>
+                                    <li><a href="<?= base_url() ?>admin/sports-activities">Sports Activities</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="<?= base_url() ?>admin/web-logo" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Web Logo</span></a>
+                            </li>
+                           
+
+                            <li>
+                                <a href="<?= base_url() ?>admin/logout" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Logout</span></a>
+                            </li>
+                            
+
+                            
+
+                            <!-- <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect"><i
+                                        class="mdi mdi-table-merge-cells"></i><span>Tables</span></a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="tables-basic.html">Basic Tables</a></li>
+                                    <li><a href="tables-datatables.html">Data Tables</a></li>
+                                </ul>
+                            </li> -->
+
+                            
+
+                        </ul>
+                    </div>
+                    <!-- Sidebar -->
+                </div>
+            </div>
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+                <div class="page-content">
+                    <div class="container-fluid">
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-flex align-items-center justify-content-between">
+                                    <h4 class="mb-0 font-size-18">MBVY</h4>
+
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
+                                            <li class="breadcrumb-item active"><?= $title ?></li>
+                                        </ol>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+
