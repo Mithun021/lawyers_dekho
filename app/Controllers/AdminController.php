@@ -75,7 +75,7 @@ class AdminController extends BaseController
         }if ($this->request->is("post")) {
             $data = [
                 'page_name' => $this->request->getPost('page_name'),
-                'slug' => url_title($this->request->getPost('page_name'))
+                'slug' => url_title(strtolower($this->request->getPost('page_name')))
             ];
             echo "<pre>"; print_r($data);
         }
