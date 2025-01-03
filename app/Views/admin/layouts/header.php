@@ -119,24 +119,8 @@ use App\Models\UsersModel;
                         <!-- Left Menu Start -->
                         <ul class="metismenu list-unstyled" id="side-menu">
                             <li class="menu-title">Menu</li>
-
                             <li>
                                 <a href="<?= base_url() ?>admin/" class="waves-effect"><i class="mdi mdi-home-analytics"></i><span>Dashboard</span></a>
-                            </li>
-                            <li>
-                                <a href="<?= base_url() ?>admin/projectsList" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Projects</span></a>
-                            </li>
-                            <li>
-                                <a href="<?= base_url() ?>admin/projectsCategoryList" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Projects Category</span></a>
-                            </li>
-                            <li>
-                                <a href="<?= base_url() ?>admin/skillsDevelopment" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Updates</span></a>
-                            </li>
-                            <li>
-                                <a href="<?= base_url() ?>admin/centers" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Centers</span></a>
-                            </li>
-                            <li>
-                                <a href="<?= base_url() ?>admin/users" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Users</span></a>
                             </li>
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect"><i
@@ -148,57 +132,14 @@ use App\Models\UsersModel;
                                     <li><a href="<?= base_url() ?>admin/applied_jobs">Applied Jobs Candidate</a></li>
                                 </ul>
                             </li>
+                            
                             <li>
-                                <a href="<?= base_url() ?>admin/volunteersList" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Volunteers</span></a>
+                                <a href="<?= base_url() ?>admin/create_page" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Page Create</span></a>
                             </li>
-                            <li>
-                                <a href="<?= base_url() ?>admin/webslider" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Front Web Slider</span></a>
-                            </li>
-                            <li>
-                                <a href="<?= base_url() ?>admin/contact-info" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Contact Info</span></a>
-                            </li>
-                            <li>
-                                <a href="<?= base_url() ?>admin/social-media" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Social Media</span></a>
-                            </li>
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow waves-effect"><i
-                                        class="mdi mdi-table-merge-cells"></i><span>About ARV</span></a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?= base_url() ?>admin/about-web">About Us</a></li>
-                                    <li><a href="<?= base_url() ?>admin/web-history">History</a></li>
-                                    <li><a href="<?= base_url() ?>admin/who-we-are">Who We Are ?</a></li>
-                                    <li><a href="<?= base_url() ?>admin/team-members">Team Members</a></li>
-                                    <li><a href="<?= base_url() ?>admin/mission-vision">Mission Vision</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow waves-effect"><i
-                                        class="mdi mdi-table-merge-cells"></i><span>Gallery</span></a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?= base_url() ?>admin/photo-gallery">Photo Gallery</a></li>
-                                    <li><a href="<?= base_url() ?>admin/media-gallery">Media Gallery</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow waves-effect"><i
-                                        class="mdi mdi-table-merge-cells"></i><span>Activities</span></a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="<?= base_url() ?>admin/cultural-activities">Cultural Activities</a></li>
-                                    <li><a href="<?= base_url() ?>admin/sports-activities">Sports Activities</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="<?= base_url() ?>admin/web-logo" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Web Logo</span></a>
-                            </li>
-                           
 
                             <li>
                                 <a href="<?= base_url() ?>admin/logout" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Logout</span></a>
                             </li>
-                            
-
-                            
-
                             <!-- <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect"><i
                                         class="mdi mdi-table-merge-cells"></i><span>Tables</span></a>
