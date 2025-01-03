@@ -29,7 +29,7 @@ class AdminController extends BaseController
                                 ->orWhere('phoneNumber',$userId)->first();
             if($data){
                 $session_data = [
-                    'loggeduserFirstName' => $data['first_name'],
+                    'loggeduserFirstName' => $data['firstName'],
                     'loggeduserPhone' => $data['phoneNumber'],
                     'loggeduseremail' => $data['email'],
                     'loggeduserId' => $data['userId']
