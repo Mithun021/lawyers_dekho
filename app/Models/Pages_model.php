@@ -3,8 +3,8 @@
     use CodeIgniter\Model;
     class Pages_model extends Model
     {
-        protected $table         = 'users';
-        protected $primaryKey = 'pages';
+        protected $table         = 'pages';
+        protected $primaryKey = 'id';
         protected $allowedFields = [
             'page_name', 
             'slug',
