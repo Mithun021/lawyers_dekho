@@ -7,6 +7,11 @@
             <div class="card-header"><h5 class="m-0 text-title">Create Page</h5></div>
             <form action="<?= base_url() ?>admin/create_page" method="post">
             <div class="card-body">
+            <?php
+                if (session()->getFlashdata('status')) {
+                    echo session()->getFlashdata('status');
+                }
+            ?>
                 <div class="form-group">
                     <span>Page Name</span>
                     <input type="text" name="page_name" class="form-control" required>
