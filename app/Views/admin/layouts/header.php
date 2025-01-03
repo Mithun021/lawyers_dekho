@@ -22,7 +22,7 @@ use App\Models\UsersModel;
 
     <head>
         <meta charset="utf-8" />
-        <title>MBVY - <?= $title ?> </title>
+        <title>Kanooni Sahayata - <?= $title ?> </title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta content="#" name="description" />
         <meta content="Dcode Materials" name="author" />
@@ -30,7 +30,7 @@ use App\Models\UsersModel;
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="<?= base_url() ?>public/assets/images/logo/<?= $user_data['web_logo'] ?>">
+        <link rel="shortcut icon" href="<?= base_url() ?>public/assets/images/<?= $user_data['web_logo'] ?>">
 
         <!-- App css -->
         <link href="<?= base_url() ?>public/admin/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -79,7 +79,7 @@ use App\Models\UsersModel;
                         <div class="dropdown d-inline-block ml-2">
                             <button type="button" class="btn header-item waves-effect"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle header-profile-user" src="<?= base_url() ?>public/assets/images/logo/<?= $user_data['web_logo'] ?>"
+                                <img class="rounded-circle header-profile-user" src="<?= base_url() ?>public/assets/images/<?= $user_data['web_logo'] ?>"
                                     alt="Header Avatar">
                                 <span class="d-none d-sm-inline-block ml-1"><?php if ($sessionData) { echo $LoggedUserName; }  ?></span>
                                 <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
@@ -107,7 +107,7 @@ use App\Models\UsersModel;
 
                     <div class="navbar-brand-box">
                         <a href="<?= base_url() ?>admin/" class="logo">
-                            <img src="<?= base_url() ?>public/assets/images/logo/<?= $user_data['web_logo'] ?>" alt="" height="40" width="auto">
+                            <img src="<?= base_url() ?>public/assets/images/<?= $user_data['web_logo'] ?>" alt="" height="40" width="auto">
                                 <!-- <span>
                                     TANA BHAGAT CLG
                                 </span> -->
@@ -227,7 +227,7 @@ use App\Models\UsersModel;
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                                    <h4 class="mb-0 font-size-18">MBVY</h4>
+                                    <h4 class="mb-0 font-size-18">Kanooni Sahayata</h4>
 
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
