@@ -86,6 +86,11 @@ class AdminController extends BaseController
         $viewsPath = APPPATH . "Views/{$pageName}.php";
         $controllerPath = APPPATH . "Controllers/FrontendController.php";
 
+        echo $viewsPath;
+        echo "<br>";
+        echo $controllerPath;
+        die;
+
         // 1. Create the View File
         $viewContent = <<<PHP
 <?= \$this->extend("layouts/master") ?>
