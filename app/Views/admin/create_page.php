@@ -39,6 +39,19 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <?php foreach($pages as $key => $value){ ?>
+                        <tr>
+                            <td><?= ++$key ?></td>
+                            <td><?= $value['page_name'] ?></td>
+                            <td><?= base_url().$value['slug'] ?></td>
+                            <td>
+                                <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+                                    <button type="button" class="btn btn-dark waves-effect waves-light">Edit</button>
+                                    <button type="button" class="btn btn-dark waves-effect waves-light">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php } ?>
                     </tbody>
                 </table>
             </div>
