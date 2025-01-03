@@ -61,4 +61,18 @@ class AdminController extends BaseController
         return view('admin/login');
         
     }
+
+    public function create_page(){
+
+        $data = [
+            'title' => 'Create Page'
+        ];
+        if ($this->request->is("get")) {
+            return view('admin/create_page',$data);
+        }if ($this->request->is("post")) {
+
+        }
+    }
+
+
 }

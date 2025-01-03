@@ -134,7 +134,7 @@ use App\Models\UsersModel;
                             </li>
                             
                             <li>
-                                <a href="<?= base_url() ?>admin/create_page" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Page Create</span></a>
+                                <a href="<?= base_url() ?>admin/create_page" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Create Page</span></a>
                             </li>
 
                             <li>
