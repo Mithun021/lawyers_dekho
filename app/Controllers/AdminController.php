@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Controllers;
+
+use App\Models\Pages_model;
 use App\Models\UsersModel;
 
 class AdminController extends BaseController
@@ -63,14 +65,19 @@ class AdminController extends BaseController
     }
 
     public function create_page(){
-
+        $pages_model = new Pages_model();
         $data = [
             'title' => 'Create Page'
         ];
         if ($this->request->is("get")) {
+            $data['pages'] = $pages_model->get();
             return view('admin/create_page',$data);
         }if ($this->request->is("post")) {
-
+            $data = [
+                'page_name' => $this->request->getPost('page_name'),
+                'slug' => url_title($this->request->getPost('page_name'))
+            ];
+            echo "<pre>"; print_r($data);
         }
     }
 

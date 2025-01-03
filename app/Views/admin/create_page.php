@@ -22,7 +22,21 @@
     </div>
     <div class="col-lg-4">
         <div class="card">
-            
+            <div class="card-header"><h5 class="m-0">Pages List</h5></div>
+            <div class="card-body">
+                <table id="basic-datatable" class="table table-bordered nowrap">
+                    <thead class="bg-light">
+                        <tr>
+                            <td>#</td>
+                            <td>Page Name</td>
+                            <td>Slug</td>
+                            <td>Action</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
