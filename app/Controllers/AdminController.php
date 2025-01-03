@@ -85,10 +85,17 @@ class AdminController extends BaseController
 
         $viewsPath = APPPATH . "Views/{$pageName}.php";
         $controllerPath = APPPATH . "Controllers/FrontendController.php";
+        $routesPath = APPPATH . 'Config/Routes.php';
+        $routeContent = <<<PHP
+
+        \$routes->get('/{$pageName}', 'FrontendController::{$pageName}');
+        PHP;
 
         echo $viewsPath;
         echo "<br>";
         echo $controllerPath;
+        echo "<br>";
+        echo $routesPath;
         die;
 
         // 1. Create the View File
