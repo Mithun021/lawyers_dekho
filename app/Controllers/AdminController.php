@@ -86,97 +86,55 @@ class AdminController extends BaseController
         $viewsPath = APPPATH . "Views/{$pageName}.php";
         $controllerPath = APPPATH . "Controllers/FrontendController.php";
         $routesPath = APPPATH . 'Config/Routes.php';
-        $routeContent = <<<PHP
-
-        \$routes->get('/{$pageName}', 'FrontendController::{$pageName}');
-        PHP;
-
-        echo $viewsPath;
-        echo "<br>";
-        echo $controllerPath;
-        echo "<br>";
-        echo $routesPath;
-        die;
-
-        // 1. Create the View File
-        $viewContent = <<<PHP
-<?= \$this->extend("layouts/master") ?>
-<?= \$this->section("body-content"); ?>
-
-<?= \$this->endSection(); ?>
-PHP;
-
-        if (!file_exists($viewsPath)) {
-            file_put_contents($viewsPath, $viewContent);
-        }
 
         // 2. Add the Method to the Controller
         $methodContent = <<<PHP
 
-    public function {$pageName}()
-    {
-        return view('{$pageName}');
-    }
-PHP;
+        public function {$pageName}()
+        {
+            return view('{$pageName}');
+        }
+        PHP;
 
         if (file_exists($controllerPath)) {
-            $controllerCode = file_get_contents($controllerPath);
+        $controllerCode = file_get_contents($controllerPath);
 
-            // Ensure the method doesn't already exist
-            if (!strpos($controllerCode, "public function {$pageName}()")) {
-                // Insert method before the last closing brace
-                $controllerCode = preg_replace(
-                    '/}\s*$/',
-                    "{$methodContent}\n}",
-                    $controllerCode
-                );
-                file_put_contents($controllerPath, $controllerCode);
-            }
-        } else {
-            // If the controller file doesn't exist, create it
-            $controllerCode = <<<PHP
-<?php
-namespace App\Controllers;
-
-class FrontendController extends BaseController
-{
-{$methodContent}
-}
-PHP;
+        // Ensure the method doesn't already exist
+        if (strpos($controllerCode, "public function {$pageName}()") === false) {
+            // Insert method before the last closing brace
+            $controllerCode = preg_replace(
+                '/}\s*$/',
+                "{$methodContent}\n}",
+                $controllerCode
+            );
             file_put_contents($controllerPath, $controllerCode);
         }
-
-        // 3. Add the Route
-        $routesPath = APPPATH . 'Config/Routes.php';
-        $routeContent = <<<PHP
-
-\$routes->get('/{$pageName}', 'FrontendController::{$pageName}');
-PHP;
-
-        if (file_exists($routesPath)) {
-            $routesCode = file_get_contents($routesPath);
-
-            // Ensure the route doesn't already exist
-            if (!strpos($routesCode, "'/{$pageName}'")) {
-                // Add the route before the PHP closing tag
-                $routesCode = preg_replace(
-                    '/\?>/',
-                    "{$routeContent}\n?>",
-                    $routesCode
-                );
-                file_put_contents($routesPath, $routesCode);
-            }
-        }
-
-        // Save the page details in the database
-        $save = $pages_model->add($data);
-        if ($save) {
-            return redirect()->to('admin/create_page/')
-                ->with('status', '<div class="alert alert-success" role="alert">Page added successfully!</div>');
         } else {
-            return redirect()->to('admin/create_page/')
-                ->with('status', '<div class="alert alert-danger" role="alert">Failed to add page.</div>');
+        // Create the controller file if it doesn't exist
+        $controllerCode = <<<PHP
+        <?php
+        namespace App\Controllers;
+
+        use CodeIgniter\Controller;
+
+        class FrontendController extends BaseController
+        {
+        {$methodContent}
         }
+        PHP;
+        file_put_contents($controllerPath, $controllerCode);
+        }
+
+        return view('admin/create_page', $data);
+        // Save the page details in the database
+        // $save = $pages_model->add($data);
+        // if ($save) {
+        //     return redirect()->to('admin/create_page/')
+        //         ->with('status', '<div class="alert alert-success" role="alert">Page added successfully!</div>');
+        // } else {
+        //     return redirect()->to('admin/create_page/')
+        //         ->with('status', '<div class="alert alert-danger" role="alert">Failed to add page.</div>');
+        // }
     }
 }
 
