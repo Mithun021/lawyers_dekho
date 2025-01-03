@@ -2,6 +2,4 @@
 
 <?=  $this->section("body-content"); ?>
 
-<?= view('admin/layouts/dashboard') ?>
-
 <?= $this->endSection() ?>
