@@ -1,6 +1,6 @@
 <?= $this->extend("layouts/master") ?>
-<?=  $this->section("body-content"); ?>
-
+<?= $this->section("body-content"); ?>
+<?php echo "hello"; ?>
 <section aria-label="section" class="jarallax">
     <img src="<?= base_url() ?>public/assets/images/background/4.jpg" class="jarallax-img" alt="">
     <div class="container">
