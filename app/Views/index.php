@@ -1,6 +1,6 @@
 <?= $this->extend("layouts/master") ?>
 <?= $this->section("body-content"); ?>
-<?php echo "hello mithun jii"; ?>
+
 <section aria-label="section" class="jarallax">
     <img src="<?= base_url() ?>public/assets/images/background/4.jpg" class="jarallax-img" alt="">
     <div class="container">
@@ -8,7 +8,7 @@
             <div class="col-lg-5 offset-md-7 wow fadeInRight" data-wow-delay=".5s">
                 <div class="spacer-double"></div>
                 <div class="spacer-double"></div>
-                <h3 class="id-color wow fadeInUp" data-wow-delay=".4s">Need Any Help?</h3>
+                <h3 class="id-color wow fadeInUp" data-wow-delay=".4s">Need Any Help?????</h3>
                 <h1 class="wow fadeInUp" data-wow-delay=".6s">We Fight for Right</h1>
                 <p class="lead wow fadeInUp" data-wow-delay=".8s">Our attorneys are committed to providing unparalleled legal representation and personalized service to our clients.</p>
                 <div class="spacer-20"></div>
